@@ -18,7 +18,7 @@
                         {{$key+1}}
                     </td>
                     <td>
-                        <a href="{{route('category.index')}}">
+                        <a href="{{route('category.show',$category->id)}}">
                             <button type="button" class="btn btn-primary position-relative">
                                 {{$category->name}}
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

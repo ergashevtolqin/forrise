@@ -57,7 +57,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = $this->categoryService->findById($id);
+        return view("pages.category.index",[
+            "category"=> $category
+        ]);
     }
 
     /**
