@@ -48,12 +48,24 @@
     </div>
     <div class="col-6">
         <a href="{{route('count.no',$question->id)}}">
-            <button type="button" class="btn btn-danger">No {{$question->count->no}}</button>
+            <button type="button" class="btn btn-danger">No 
+            @if (isset($question->count->no))
+                {{$question->count->no}}
+            @else 
+                0
+            @endif 
+        </button>
         </a>
     </div>
     <div class="col-6">
         <a href="{{route('count.yes',$question->id)}}">
-            <button type="button" class="btn btn-success">Yes {{$question->count->yes}}</button>
+            <button type="button" class="btn btn-success">Yes 
+            @if (isset($question->count->yes))
+                {{$question->count->yes}}
+            @else 
+                0
+            @endif 
+            </button>
         </a>
     </div>
   </div>
