@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\CountModul;
 use App\Models\Modul;
 
 class GameService extends BaseService
@@ -14,14 +15,22 @@ class GameService extends BaseService
     }
     public function getQuestion(int $id)
     {
-        $question = $this->model->where('category_id',$id)->inRandomOrder()->first();
-
         
-        // return $question;
 
-        return view('pages.game.index',[
-            'question'=> $question
-        ]);
+        for ($i=1; $i < 100; $i++) { 
+
+            $count = CountModul::where('yes','>=',$i)->limit(10)->pluck('modul_id')->toArray();
+            $question = $this->model->with('count')->where('category_id',$id)->whereNotIn('id',$count)->inRandomOrder()->first();
+
+            if($question != null)
+            {
+                break;
+            }
+
+        }
+
+        return $question;
+
     }
 }
 

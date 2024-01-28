@@ -30,5 +30,11 @@ class BaseService
         $model = $this->model::first();
         return $model;
     }
+
+    public function findById(int $id)
+    {
+        $model = $this->model::find($id);  
+        return $model;
+    }
 }
 

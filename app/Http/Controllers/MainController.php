@@ -27,7 +27,15 @@ class MainController extends Controller
 
     public function game($id)
     {
-        $q = $this->gameService->getQuestion($id);
-        return $q;
+        $category = $this->categoryService->findById($id);
+
+        $question = $this->gameService->getQuestion($id);
+
+        // return $category;
+
+        return view('pages.game.index',[
+            'question'=> $question,
+            'category'=> $category,
+        ]);
     }
 }

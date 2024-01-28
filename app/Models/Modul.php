@@ -14,4 +14,9 @@ class Modul extends Model
         'question',
         'answer',
     ];
+
+    public function count()
+    {
+        return $this->hasOne(CountModul::class,'modul_id','id');
+    }
 }
