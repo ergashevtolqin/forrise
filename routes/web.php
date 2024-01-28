@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\ModulController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +21,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [TestController::class, 'index']);
+Route::get('/', [MainController::class, 'index']);
+Route::get('game/{id}', [MainController::class, 'game'])->name('game');
+
+Route::resource('category', CategoryController::class);
+Route::resource('modul', ModulController::class);

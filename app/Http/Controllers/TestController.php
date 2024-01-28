@@ -9,10 +9,10 @@ class TestController extends Controller
 {
     public function index(){
 
-        $first = Test::first();
+        // $first = Test::first();
 
         return view('welcome',[
-            'first' => $first
+            // 'first' => $first
         ]);
 
     }
